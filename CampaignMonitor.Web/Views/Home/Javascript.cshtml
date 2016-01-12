@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Campaign Monitor | Javascript";
+}
+
+<h3>Javascript</h3>
+
+<div class="modal-body">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Requirement 5</h4>
+        </div>
+
+        <div class="js-containerStartsWith">
+            <div class="col-sm-4">
+                <label for="txtStartsWithWords">Enter words to be matched:</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" id="txtStartsWithWords" onkeyup="CheckStartsWith()" />
+            </div>
+            <div class="col-sm-4">
+                <label for="txtStartsWithCondition">Starting text condition:</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" id="txtStartsWithCondition" onkeyup="CheckStartsWith()" />
+            </div>
+        </div>
+
+
+        <div class="js-containerEndsWith">
+            <div class="col-sm-4">
+                <label for="txtEndsWithWords">Enter words to be matched:</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" id="txtEndsWithWords" onkeyup="CheckEndsWith()" />
+            </div>
+            <div class="col-sm-4">
+                <label for="txtEndsWithCondition">Ending text condition:</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" id="txtEndsWithCondition" onkeyup="CheckEndsWith()" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Requirement 6</h4>
+        </div>
+
+        <div class="col-sm-12">
+            <label for="txtWordsToStripHtml">Enter markup to have html removed:</label>
+        </div>
+        <div class="col-sm-12">
+            <textarea id="txtWordsToStripHtml" cols="40" rows="5"></textarea>
+        </div>
+        <div class="col-sm-12">
+            <button onclick="StripMarkupFromText()">Strip Html</button>
+        </div>
+    </div>
+</div>
+
+@section  scripts {
+
+    <script src="~/Scripts/js-requirements.js"></script>
+
+}

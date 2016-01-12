@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Campaign Monitor | Sql";
+}
+
+<h3>SQL</h3>
+
+<div class="modal-body">
+
+    <div class="row">
+        <h4>Requirement 9</h4>
+    </div>
+    <div class="row">
+        <p><b>First answer:</b></p>
+        <p>
+            SELECT DISTINCT(s.SalespersonID), Name
+            FROM Salesperson s INNER JOIN Orders o ON s.SalespersonID = o.SalespersonID
+            WHERE o.CustomerID = 4
+        </p>
+        <p><b>Second answer:</b></p>
+        <p>
+            SELECT Name
+            FROM Salesperson
+            WHERE SalespersonID  NOT IN
+            (SELECT DISTINCT(sp.SalespersonID) FROM Salesperson sp INNER JOIN Orders o ON sp.SalespersonID = o.SalespersonID WHERE o.CustomerID = 4)
+        </p>
+        <p><b>Third answer:</b></p>
+        <p>
+            SELECT Name
+            FROM (SELECT COUNT(*) as OrderCount, SalespersonID FROM Orders GROUP BY SalespersonID) as tempTable LEFT JOIN Salesperson s ON tempTable.SalespersonID = s.SalespersonID
+            WHERE tempTable.OrderCount > 1
+        </p>
+    </div>
+
+    <div class="row">
+        <h4>Requirement 10</h4>
+    </div>
+    <div class="row">
+        <p><b>First answer:</b></p>
+        <p>
+            SELECT Name
+            FROM (SELECT Name, ROW_NUMBER() OVER (ORDER BY Salary DESC) AS RowNumber FROM Salesperson) tempTable
+            WHERE RowNumber = 3
+        </p>
+        <p><b>Second answer:</b></p>
+        <p>
+            @*GROUP BY CustomerID WITH ROLLUP ???*@
+            SELECT CustomerID, TotalOrderValue
+            FROM (SELECT CustomerID, SUM(CostOfUnit * NumberOfUnits) as TotalOrderValue FROM Orders GROUP BY CustomerID) as tempTable
+            WHERE TotalOrderValue > 1000
+        </p>
+        <p><b>Third answer:</b></p>
+        <p>
+            SELECT CAST(YEAR(OrderDate) AS VARCHAR(4)) + '-' + CAST(MONTH(OrderDate) AS VARCHAR(2)) AS GroupedMonth, COUNT(*) as OrdersCount
+            FROM Orders
+            GROUP BY CAST(YEAR(OrderDate) AS VARCHAR(4)) + '-' + CAST(MONTH(OrderDate) AS VARCHAR(2))
+            ORDER BY GroupedMonth DESC
+        </p>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Campaign Monitor | .Net";
+}
+
+<h3>.Net</h3>
+
+<div class="modal-body">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Requirement 1</h4>
+            <p>See unit test</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Requirement 2</h4>
+        </div>
+        <div class="col-sm-4">
+            <label for="txtDivisibleValue">Enter divisible number:</label>
+        </div>
+        <div class="col-sm-8">
+            <input type="text" id="txtDivisibleValue" />
+        </div>
+        <div class="col-sm-12">
+            <button onclick="GetPositiveDivisors()">Get Divisors</button>
+        </div>
+        <div class="col-sm-12">
+            <span id="txtPositiveDivisorsAnswer" class="answer"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Requirement 3</h4>
+        </div>
+        <div class="col-sm-4">
+            <label for="txtSideA">Side A Length:</label>
+        </div>
+        <div class="col-sm-8">
+            <input type="text" id="txtSideA" />
+        </div>
+        <div class="col-sm-4">
+            <label for="txtSideA">Side B Length:</label>
+        </div>
+        <div class="col-sm-8">
+            <input type="text" id="txtSideB" />
+        </div>
+        <div class="col-sm-4">
+            <label for="txtSideA">Side C Length:</label>
+        </div>
+        <div class="col-sm-8">
+            <input type="text" id="txtSideC" />
+        </div>
+        <div class="col-sm-12">
+            <button onclick="GetSurfaceArea()">Calculate Surface Area</button>
+        </div>
+        <div class="col-sm-12">
+            <span id="txtSurfaceAreaAnswer"  class="answer"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Requirement 4</h4>
+        </div>
+        <div class="col-sm-4">
+            <label for="txtIntArray">Enter a comma seperated int array eg. 1, 2, 3 :</label>
+        </div>
+        <div class="col-sm-8">
+            <input type="text" id="txtIntArray" />
+        </div>
+        <div class="col-sm-12">
+            <button onclick="FindCommonElements()">Get Divisors</button>
+        </div>
+        <div class="col-sm-12">
+            <span id="txtIntArrayCommonElementsAnswer"  class="answer"></span>
+        </div>
+    </div>
+
+</div>
+
+@section  scripts {
+
+    <script src="~/Scripts/dotnet-requirements.js"></script>
+
+}
